@@ -24,16 +24,21 @@ export const DefaultAppLayout: React.FC = () => {
   const { copyModeEnabled } = useInputState();
   const isAlternateBuffer = useAlternateBuffer();
 
+  // 1. Pull the new setting you added to the interface
+  const isTermux = uiState.settings?.ui?.termux;
+
   const { rootUiRef, terminalHeight } = uiState;
   useFlickerDetector(rootUiRef, terminalHeight);
-  // If in alternate buffer mode, need to leave room to draw the scrollbar on
-  // the right side of the terminal.
+
   return (
     <Box
       flexDirection="column"
       width={uiState.terminalWidth}
-      height={isAlternateBuffer ? terminalHeight : undefined}
-      paddingBottom={isAlternateBuffer ? 1 : undefined}
+      // 2. Termux Fix: Lock height and force hidden overflow to stop fast-scrolling
+      height={isTermux ? terminalHeight : (isAlternateBuffer ? terminalHeight : undefined)}
+      overflow={isTermux ? 'hidden' : undefined}
+      // 3. Only add padding if NOT in Termux mode (avoids pushing content off-screen)
+      paddingBottom={!isTermux && isAlternateBuffer ? 1 : undefined}
       flexShrink={0}
       flexGrow={0}
       ref={uiState.rootUiRef}
@@ -85,3 +90,4 @@ export const DefaultAppLayout: React.FC = () => {
     </Box>
   );
 };
+        
