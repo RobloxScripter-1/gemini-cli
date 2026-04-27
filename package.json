@@ -1,6 +1,6 @@
 {
-  "name": "@google/gemini-cli",
-  "version": "0.41.0-nightly.20260423.gaa05b4583",
+  "name": "@robloxscripter1",
+  "version": "gemini-cli-debug",
   "engines": {
     "node": ">=20.0.0"
   },
@@ -85,7 +85,7 @@
     "cross-spawn": "^7.0.6"
   },
   "bin": {
-    "gemini": "bundle/gemini.js"
+    "gemini-debug": "bundle/gemini.js"
   },
   "files": [
     "bundle/",
