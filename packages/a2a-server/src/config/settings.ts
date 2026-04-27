@@ -26,6 +26,10 @@ export const USER_SETTINGS_PATH = path.join(USER_SETTINGS_DIR, 'settings.json');
 export interface Settings {
   mcpServers?: Record<string, MCPServerConfig>;
   coreTools?: string[];
+  ui?: {
+    termux?: boolean;
+    autoThemeSwitching?: boolean;
+  },
   excludeTools?: string[];
   allowedTools?: string[];
   tools?: {
