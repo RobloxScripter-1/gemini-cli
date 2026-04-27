@@ -258,6 +258,11 @@
           "markdownDescription": "The color theme for the UI. See the CLI themes guide for available options.\n\n- Category: `UI`\n- Requires restart: `no`",
           "type": "string"
         },
+        "termux": {
+        "type": "boolean",
+        "description": "Optimizes the UI layout for the Termux environment on Android, addressing scrolling and flicker issues.",
+        "default": false
+        },
         "autoThemeSwitching": {
           "title": "Auto Theme Switching",
           "description": "Automatically switch between default light and dark themes based on terminal background color.",
